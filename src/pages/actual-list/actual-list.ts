@@ -74,4 +74,7 @@ export class ActualListPage {
       //this.common.Alert(error);
     });
   }
+  gotoProseted(){
+    this.navCtrl.push("MachineSetedproPage",{mid:this.mid});
+  }
 }

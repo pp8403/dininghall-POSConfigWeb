@@ -7,9 +7,14 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{model.machineInfo.officeName}} - {{model.machineInfo.machineName}}</ion-title>
-    <ion-buttons right>
+    <!-- <ion-buttons right>
       <button ion-button icon-only (click)="ionViewDidEnter();" color="dark">
         <ion-icon name="ios-refresh-circle-outline"></ion-icon>刷新
+      </button>
+    </ion-buttons> -->
+    <ion-buttons right>
+      <button ion-button icon-only (click)="gotoProseted();" >
+        <ion-icon name="list"></ion-icon>查看
       </button>
     </ion-buttons>
   </ion-navbar>
