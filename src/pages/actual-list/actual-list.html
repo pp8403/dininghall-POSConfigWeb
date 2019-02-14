@@ -1,0 +1,31 @@
+<!--
+  Generated template for the ActualListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{model.machineInfo.officeName}} - {{model.machineInfo.machineName}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="ionViewDidEnter();" color="dark">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>刷新
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list >
+    <ng-container *ngFor='let actual of model.actualList'>
+        <ion-item-divider sticky style="color:gray;font-weight:bold;">
+          {{actual.actualDate | moment: ['YYYY年MM月DD日']}} {{actual.actualDate | momentweek}}</ion-item-divider>
+          <button ion-item *ngFor="let meal of actual.lstMeal" (click)="getpro(meal.actualId,actual.actualDate,meal.mealTypeName)">
+            {{meal.mealTypeName}}
+          </button> 
+          
+    </ng-container>
+  </ion-list>
+
+</ion-content>

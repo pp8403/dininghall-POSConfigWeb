@@ -1,0 +1,32 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>登录POS设置</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list inset style="width:25rem;margin:0 auto;">
+
+    <ion-item>
+      <ion-input [(ngModel)]="name" type="text" clearInput placeholder='请输入用户名'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="pwd" type="password" clearInput placeholder='请输入登录密码'></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <div padding style="width:28rem;margin:0 auto;">
+    <button block ion-button (click)="login();"> 登录</button>
+  </div>
+
+
+</ion-content>
+<ion-footer padding text-center>
+  <img src='assets/imgs/login_logo.png' style="width:15rem;" />
+</ion-footer>

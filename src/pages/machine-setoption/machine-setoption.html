@@ -1,0 +1,68 @@
+<!--
+  Generated template for the MachineSetoptionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{model?.officeName}} - {{model?.machineName}}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="ionViewDidEnter();" color="dark">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>刷新
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
+      窗口类型:
+    </ion-list-header>
+    <ion-item>
+      <ion-toggle [(ngModel)]="model.option.allow_takepre" color="secondary"></ion-toggle>
+      <ion-label>允许取预订餐</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [(ngModel)]="model.option.allow_localorder" color="secondary"></ion-toggle>
+      <ion-label>允许现场点餐(单点)</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [(ngModel)]="model.option.allow_localordermulti" color="secondary"></ion-toggle>
+      <ion-label>允许现场点餐(多点)</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-toggle [(ngModel)]="model.option.allow_takehold" color="secondary"></ion-toggle>
+      <ion-label>允许取"留"餐</ion-label>
+    </ion-item>
+
+
+    <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
+      设备绑定:
+    </ion-list-header>
+    <ion-item>
+      <ion-label fixed style="width:12rem;min-width:12rem;">对应POS设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.posid" type="text" placeholder='在此输入POS设备UUID'></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed style="width:12rem;min-width:12rem;">对应TV设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.tvid" type="text" placeholder='在此输入TV设备UUID'></ion-input>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed style="width:12rem;min-width:12rem;">对应TV设备排序值:</ion-label>
+      <ion-input [(ngModel)]="model.option.tvorder" type="number" placeholder='在此输入TV排序值'></ion-input>
+      <p>数值越大显示越靠右</p>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>
+<ion-footer>
+  <button ion-button full color="secondary" (click)="save();">保存</button>
+</ion-footer>
