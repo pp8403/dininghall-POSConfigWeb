@@ -55,4 +55,9 @@ export class MachineListPage {
       //this.common.Alert(error);
     });
   }
+  logout(){
+    this.common.storage.remove(this.common.LSName_Token).then(()=>{
+      this.navCtrl.setRoot('LoginPage');
+    });
+  }
 }

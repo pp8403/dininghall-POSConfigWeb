@@ -6,8 +6,14 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>设备列表</ion-title>
     <ion-buttons right>
+      <button ion-button icon-only (click)="logout();" color="dark">
+        <ion-icon name="ios-exit-outline"></ion-icon>注销
+      </button>
+
+    </ion-buttons>
+    <ion-title>设备列表</ion-title>
+    <ion-buttons left>
       <button ion-button icon-only (click)="ionViewDidEnter();" color="dark">
         <ion-icon name="ios-refresh-circle-outline"></ion-icon>刷新
       </button>
