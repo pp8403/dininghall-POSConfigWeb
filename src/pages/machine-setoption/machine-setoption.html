@@ -58,6 +58,11 @@
       <ion-input [(ngModel)]="model.option.tvorder" type="number" placeholder='在此输入TV排序值'></ion-input>
       <p>数值越大显示越靠右</p>
     </ion-item>
+
+    <ion-item>
+      <ion-label fixed style="width:12rem;min-width:12rem;">对应打饭机设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.rice_machine_id" type="text" placeholder='在此输入打饭机设备UUID'></ion-input>
+    </ion-item>
   </ion-list>
 
   <p text-center>
