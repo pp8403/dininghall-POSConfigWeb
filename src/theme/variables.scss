@@ -86,3 +86,23 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.alert-ios .alert-radio-group,
+.alert-ios .alert-checkbox-group {
+min-height: 80px;
+}
+
+.alert-ios .alert-checkbox-icon {
+    border-radius: 0% !important;
+    border-width: 2px !important;
+  }
+
+  .alert-ios [aria-checked=true] .alert-checkbox-inner {
+    border-width: 1px !important;
+    border-top-width: 0 !important;
+    border-left-width: 0 !important;
+  }
+
+  .alert-ios .alert-wrapper {
+    max-width: 370px !important;
+  }
