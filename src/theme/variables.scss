@@ -96,10 +96,12 @@ $toast-md-background: #f53d3d;
 $toast-md-title-color:white;
 //$toast-md-title-font-size:3rem;
 
+$alert-min-width:300px;
+
 .alert-ios .alert-radio-group,
 .alert-ios .alert-checkbox-group {
   overflow: auto !important;
-min-height: 80px;
+min-height: 150px;
 overflow-y: scroll !important;
 }
 
