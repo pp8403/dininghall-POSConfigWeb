@@ -59,9 +59,13 @@ export class ActualListPage {
     alert.addButton({
       text: '确定',
       handler: data => {
+        
         this.http.Request("setMachinePro", {mid:this.mid,actualId:actualId,proids:data}).then(res=>{
           this.common.LoadingHide();
-          this.common.Toast('设置完成','bottom');
+          if(data.length==0)
+            this.common.Alert("未选择任何餐品！",);
+          else
+            this.common.Toast('设置完成','bottom');
         },error=>{
           this.common.LoadingHide();
           //this.common.Alert(error);

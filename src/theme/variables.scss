@@ -87,9 +87,20 @@ $colors: (
 @import "roboto";
 @import "noto-sans";
 
+
+// Toast
+$toast-ios-background: #f53d3d;
+$toast-ios-title-color:white;
+//$toast-ios-title-font-size:3rem;
+$toast-md-background: #f53d3d;
+$toast-md-title-color:white;
+//$toast-md-title-font-size:3rem;
+
 .alert-ios .alert-radio-group,
 .alert-ios .alert-checkbox-group {
+  overflow: auto !important;
 min-height: 80px;
+overflow-y: scroll !important;
 }
 
 .alert-ios .alert-checkbox-icon {
@@ -105,4 +116,9 @@ min-height: 80px;
 
   .alert-ios .alert-wrapper {
     max-width: 370px !important;
+  }
+
+  .alert-ios .alert-button{
+    border-top:1px solid #dbdbdf !important;
+    border-right:1px solid #dbdbdf !important;
   }
