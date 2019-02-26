@@ -34,6 +34,7 @@ export class ActualListPage {
     },error=>{
       this.common.LoadingHide();
       //this.common.Alert(error);
+      this.common.GotoHomePage();
     });
 
   }

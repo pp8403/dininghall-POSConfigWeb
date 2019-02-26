@@ -37,6 +37,7 @@ export class MachineSetoptionPage {
     }, error => {
       this.common.LoadingHide();
       //this.common.Alert(error);
+      this.common.GotoHomePage();
     });
 
   }
