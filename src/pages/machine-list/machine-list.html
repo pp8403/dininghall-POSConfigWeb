@@ -31,7 +31,7 @@
           {{offi.officeName}}</ion-item-divider>
     <ion-item *ngFor='let machine of offi.machineList'>
       {{machine.machineName}}
-      <button ion-button item-end color='danger' (click)='gotoActualList(machine.machineId)'>设置餐品</button>
+      <button ion-button item-end color='danger' (click)='gotoActualList(machine.machineId)' *ngIf="machine.mtype=='POS'">设置餐品</button>
       <button ion-button item-end (click)='gotoMInfo(machine.machineId)'>属性设置</button>
       <button ion-button item-end (click)='refreshMachine(machine.machineId)' color='secondary'>刷新设备</button>
     </ion-item>

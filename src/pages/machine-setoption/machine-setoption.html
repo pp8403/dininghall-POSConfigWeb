@@ -18,6 +18,7 @@
 <ion-content padding>
   <ion-list>
 
+    <ng-container *ngIf="model.mtype=='POS'">
     <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
       窗口类型:
     </ion-list-header>
@@ -37,32 +38,50 @@
       <ion-toggle [(ngModel)]="model.option.allow_takehold" color="secondary"></ion-toggle>
       <ion-label>允许取"留"餐</ion-label>
     </ion-item>
-
+  </ng-container>
 
     <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
       设备绑定:
     </ion-list-header>
+    <ng-container *ngIf="model.mtype=='POS'">
     <ion-item>
-      <ion-label fixed style="width:12rem;min-width:12rem;">对应POS设备编码:</ion-label>
+      <ion-label fixed >对应POS设备编码:</ion-label>
       <ion-input [(ngModel)]="model.option.posid" type="text" placeholder='在此输入POS设备UUID'></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed style="width:12rem;min-width:12rem;">对应TV设备编码:</ion-label>
-      <ion-input [(ngModel)]="model.option.tvid" type="text" placeholder='在此输入TV设备UUID'></ion-input>
-
+      <ion-label fixed >显餐TV设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.tvid_pro_display" type="text" placeholder='在此输入TV设备UUID'></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label fixed style="width:12rem;min-width:12rem;">对应TV设备排序值:</ion-label>
-      <ion-input [(ngModel)]="model.option.tvorder" type="number" placeholder='在此输入TV排序值'></ion-input>
+      <ion-label fixed >显餐TV设备排序值:</ion-label>
+      <ion-input [(ngModel)]="model.option.tvorder_pro_display" type="number" placeholder='在此输入TV排序值'></ion-input>
       <p>数值越大显示越靠右</p>
     </ion-item>
 
+
     <ion-item>
-      <ion-label fixed style="width:12rem;min-width:12rem;">对应打饭机设备编码:</ion-label>
-      <ion-input [(ngModel)]="model.option.rice_machine_id" type="text" placeholder='在此输入打饭机设备UUID'></ion-input>
+      <ion-label fixed >出餐PAD设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.padid_pro_cooked" type="text" placeholder='在此输入出餐PAD设备UUID'></ion-input>
     </ion-item>
+
+    <ion-item>
+      <ion-label fixed >出餐TV设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.tvid_pro_take" type="text" placeholder='在此输入出餐TV设备UUID'></ion-input>
+    </ion-item>
+
+  </ng-container>
+
+
+  <ng-container *ngIf="model.mtype=='RICEMECHINE'">
+    <ion-item>
+      <ion-label fixed >打饭机Pad设备编码:</ion-label>
+      <ion-input [(ngModel)]="model.option.padid_rice_machine" type="text" placeholder='在此输入打饭机设备UUID'></ion-input>
+    </ion-item>
+  </ng-container>
+
+
   </ion-list>
 
   <p text-center>
