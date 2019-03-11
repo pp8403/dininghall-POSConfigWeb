@@ -48,11 +48,13 @@ export class MachineSetoptionPage {
       this.model.option.allow_localorder = this.model.option.allow_localorder == '1';
       this.model.option.allow_localordermulti = this.model.option.allow_localordermulti == '1';
       this.model.option.allow_takehold = this.model.option.allow_takehold == '1';
+      this.model.option.rice_isfree = this.model.option.rice_isfree == '1';
     } else {
       this.model.option.allow_takepre = this.model.option.allow_takepre ? '1' : '0';
       this.model.option.allow_localorder = this.model.option.allow_localorder ? '1' : '0';
       this.model.option.allow_localordermulti = this.model.option.allow_localordermulti ? '1' : '0';
       this.model.option.allow_takehold = this.model.option.allow_takehold ? '1' : '0';
+      this.model.option.rice_isfree = this.model.option.rice_isfree ? '1' : '0';
     }
   }
   save() {

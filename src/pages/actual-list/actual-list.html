@@ -26,7 +26,7 @@
     <ng-container *ngFor='let actual of model.actualList'>
         <ion-item-divider sticky style="color:gray;font-weight:bold;">
           {{actual.actualDate | moment: ['YYYY年MM月DD日']}} {{actual.actualDate | momentweek}}</ion-item-divider>
-          <button ion-item *ngFor="let meal of actual.lstMeal" (click)="getpro(meal.actualId,actual.actualDate,meal.mealTypeName)">
+          <button ion-item *ngFor="let meal of actual.lstMeal" (click)="showChoosePro(meal.actualId,actual.actualDate,meal.mealTypeName)">
             {{meal.mealTypeName}}
           </button> 
           

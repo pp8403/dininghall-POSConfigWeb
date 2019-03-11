@@ -79,6 +79,19 @@
       <ion-label fixed >打饭机Pad设备编码:</ion-label>
       <ion-input [(ngModel)]="model.option.padid_rice_machine" type="text" placeholder='在此输入打饭机设备UUID'></ion-input>
     </ion-item>
+
+    <ion-item>
+        <ion-toggle [(ngModel)]="model.option.rice_isfree" color="secondary"></ion-toggle>
+        <ion-label>米饭免费(关闭该项则为收费)</ion-label>
+      </ion-item>
+
+
+    <ion-item>
+        <ion-input [disabled]="model.option.rice_isfree" [(ngModel)]="model.option.rice_orderfree_quantity" type="number" placeholder='在此输入TV排序值'></ion-input>
+        <p>数值越大显示越靠右</p>
+        <ion-label>如有预订单可免费几份</ion-label>
+      </ion-item>
+      
   </ng-container>
 
 
