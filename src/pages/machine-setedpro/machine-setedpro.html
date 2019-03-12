@@ -24,6 +24,7 @@
         <ion-item *ngFor="let meal of actual.lstMeal">
           {{meal.proname}}
           <ion-badge item-start>{{meal.mealTypeName}}</ion-badge>
+          <ion-badge item-start color="gray">{{meal.nowalkin==1?"不允许现场点餐":""}}</ion-badge>
         </ion-item>
         
         
