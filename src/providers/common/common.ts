@@ -83,7 +83,8 @@ export class CommonProvider {
   public GetStorage(key: string) {
     return this.storage.get(key).then(val => {
       if (key == this.LSName_APIURL) {
-        if (val == null) val =AppConfig.defaultIPAddr;
+        //if (val == null) 
+          val =AppConfig.defaultIPAddr;
         this.APIHost = val;
       }
       return Promise.resolve(val);

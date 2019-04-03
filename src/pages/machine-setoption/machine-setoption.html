@@ -23,17 +23,40 @@
       窗口类型:
     </ion-list-header>
     <ion-item>
-      <ion-toggle [(ngModel)]="model.option.allow_takepre" color="secondary"></ion-toggle>
-      <ion-label>允许取预订餐</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-toggle [(ngModel)]="model.option.allow_localorder" color="secondary"></ion-toggle>
-      <ion-label>允许现场点餐(单点)</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-toggle [(ngModel)]="model.option.allow_localordermulti" color="secondary"></ion-toggle>
-      <ion-label>允许现场点餐(多点)</ion-label>
-    </ion-item>
+    <ion-segment [(ngModel)]="mealType">
+      <ng-container *ngFor="let objMeal of model.lstMeal">
+
+      <ion-segment-button [value]="objMeal.mealType">
+        {{objMeal.mealName}}
+      </ion-segment-button>
+      </ng-container>
+    </ion-segment>
+  </ion-item>
+    <ng-container [ngSwitch]="mealType">
+      <ng-container *ngFor="let objMeal of model.lstMeal">
+          <ng-container *ngSwitchCase="objMeal.mealType">
+
+          <ion-item *ngIf="formval[objMeal.mealType]!=undefined">
+              <ion-toggle [(ngModel)]="formval[objMeal.mealType]['allow_takepre']" color="secondary"></ion-toggle>
+              <ion-label>({{objMeal.mealName}}) 允许取预订餐</ion-label>
+            </ion-item>
+            <ion-item *ngIf="formval[objMeal.mealType]!=undefined">
+              <ion-toggle [(ngModel)]="formval[objMeal.mealType]['allow_localorder']" color="secondary"></ion-toggle>
+              <ion-label>({{objMeal.mealName}}) 允许现场点餐(单点)</ion-label>
+            </ion-item>
+            <ion-item *ngIf="formval[objMeal.mealType]!=undefined">
+              <ion-toggle [(ngModel)]="formval[objMeal.mealType]['allow_localordermulti']" color="secondary"></ion-toggle>
+              <ion-label>({{objMeal.mealName}}) 允许现场点餐(多点)</ion-label>
+            </ion-item>
+      </ng-container>
+    </ng-container>
+      
+    </ng-container>
+
+    
+        
+
+   
     <ion-item>
       <ion-toggle [(ngModel)]="model.option.allow_takehold" color="secondary"></ion-toggle>
       <ion-label>允许取"留"餐</ion-label>
