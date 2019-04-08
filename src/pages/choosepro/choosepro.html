@@ -7,14 +7,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>{{actualDate}} - {{mealTypeName}}</ion-title>
+    <ion-buttons right>
+           
+          
+            <button ion-button icon-only color="dark" (click)="selectAll()">
+                全选&nbsp;&nbsp;<ion-toggle [(ngModel)]='selectAll_status' color="danger" ></ion-toggle>
+              </button>
+      </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
+    
     <ion-item *ngFor="let pro of prolist">
       <ion-label>{{pro.proname}}</ion-label>
-      <ion-toggle [(ngModel)]='pro.seted' color="secondary"></ion-toggle>
+      <ion-toggle (ionChange)="selectAll_re()" [(ngModel)]='pro.seted' color="secondary"></ion-toggle>
       <ion-select  [(ngModel)]="pro.nowalkin" [disabled]='pro.seted==false' interface='popover'>
         <ion-option value="1">不允许现场点餐</ion-option>
         <ion-option value="0">允许现场点餐</ion-option>

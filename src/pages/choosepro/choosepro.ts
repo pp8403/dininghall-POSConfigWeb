@@ -21,6 +21,7 @@ export class ChooseproPage {
   actualDate;
   mealTypeName;
   prolist=[];
+  selectAll_status=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private common:CommonProvider,
@@ -38,7 +39,7 @@ export class ChooseproPage {
     this.http.Request("getActualProList", {mid:this.mid,actualId:this.actualId}).then(res=>{
       this.common.LoadingHide();
       this.prolist=res.data;
-      
+      this.selectAll_re();
     },error=>{
       this.common.LoadingHide();
       //this.common.Alert(error);
@@ -51,5 +52,21 @@ export class ChooseproPage {
   }
   save(){
     this.viewCtrl.dismiss(this.prolist);
+  }
+
+
+  selectAll(){
+    this.selectAll_status=!this.selectAll_status;
+    this.prolist.map(pro=>{pro.seted=this.selectAll_status});
+  }
+  selectAll_re(){
+    let isAllTrue=true;
+    for(let pro of this.prolist){
+      if(pro.seted==false){
+        isAllTrue=false;
+        break;
+      }
+    }
+    this.selectAll_status=isAllTrue;
   }
 }
