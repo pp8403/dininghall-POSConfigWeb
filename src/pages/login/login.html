@@ -5,13 +5,13 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>登录POS设置</ion-title>
+  <ion-navbar color="danger">
+    <ion-title>登录Dining Hall POS设置</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list inset style="width:25rem;margin:0 auto;">
+  <ion-list inset style="width:20vw;margin:0 auto;padding-top: 5rem;">
 
     <ion-item>
       <ion-input [(ngModel)]="name" type="text" clearInput placeholder='请输入用户名'></ion-input>
@@ -21,7 +21,7 @@
     </ion-item>
 
   </ion-list>
-  <div padding style="width:28rem;margin:0 auto;">
+  <div padding style="width:20vw;margin:0 auto;">
     <button block ion-button (click)="login();"> 登录</button>
   </div>
 <p text-center>
