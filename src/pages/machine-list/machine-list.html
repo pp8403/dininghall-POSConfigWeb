@@ -5,16 +5,16 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="danger">
     <ion-buttons right>
-      <button ion-button icon-only (click)="logout();" color="dark">
+      <button ion-button icon-only (click)="logout();" >
         <ion-icon name="ios-exit-outline"></ion-icon>注销
       </button>
 
     </ion-buttons>
     <ion-title>设备列表</ion-title>
     <ion-buttons left>
-      <button ion-button icon-only (click)="ionViewDidEnter();" color="dark">
+      <button ion-button icon-only (click)="ionViewDidEnter();" >
         <ion-icon name="ios-refresh-circle-outline"></ion-icon>刷新
       </button>
 
@@ -23,9 +23,9 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="background: #f7f7f7;">
 
-  <ion-list >
+  <ion-list  class="width60">
     <ng-container *ngFor='let offi of formValue["MachineList"]'>
         <ion-item-divider sticky style="color:#488aff;font-weight:bold;">
           {{offi.officeName}}</ion-item-divider>
