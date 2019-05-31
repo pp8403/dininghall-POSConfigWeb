@@ -22,6 +22,7 @@ export class ChooseproPage {
   mealTypeName;
   prolist=[];
   selectAll_status=false;
+  selectAll_nowalkin_status=false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private common:CommonProvider,
@@ -39,7 +40,11 @@ export class ChooseproPage {
     this.http.Request("getActualProList", {mid:this.mid,actualId:this.actualId}).then(res=>{
       this.common.LoadingHide();
       this.prolist=res.data;
+      this.prolist.map(m=>{
+        m.nowalkin=m.nowalkin=="1";
+      });
       this.selectAll_re();
+      this.selectAll_re_nowalkin();
     },error=>{
       this.common.LoadingHide();
       //this.common.Alert(error);
@@ -51,13 +56,24 @@ export class ChooseproPage {
     this.viewCtrl.dismiss();
   }
   save(){
+    this.prolist.map(m=>{
+      m.nowalkin=m.nowalkin?"1":"0";
+    });
     this.viewCtrl.dismiss(this.prolist);
   }
 
 
   selectAll(){
+    setTimeout(() => {
     this.selectAll_status=!this.selectAll_status;
     this.prolist.map(pro=>{pro.seted=this.selectAll_status});
+    }, 200);
+  }
+  selectAll_nowalkin(){
+    setTimeout(() => {
+    this.selectAll_nowalkin_status=!this.selectAll_nowalkin_status;
+    this.prolist.map(pro=>{pro.nowalkin=this.selectAll_nowalkin_status});
+    }, 200);
   }
   selectAll_re(){
     let isAllTrue=true;
@@ -68,5 +84,15 @@ export class ChooseproPage {
       }
     }
     this.selectAll_status=isAllTrue;
+  }
+  selectAll_re_nowalkin(){
+    let isAllTrue=true;
+    for(let pro of this.prolist){
+      if(pro.nowalkin==false){
+        isAllTrue=false;
+        break;
+      }
+    }
+    this.selectAll_nowalkin_status=isAllTrue;
   }
 }

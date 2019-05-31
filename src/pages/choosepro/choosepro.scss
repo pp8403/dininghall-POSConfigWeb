@@ -1,3 +1,19 @@
 page-choosepro {
-
+    .scroll::-webkit-scrollbar {
+        overflow-y:scroll;
+        width: 1rem;
+       }
+        .scroll::-webkit-scrollbar-track {
+        background-color:rgba(228, 228, 228, 0.6);
+        -webkit-border-radius: 2em;
+        -moz-border-radius: 2em;
+        border-radius:2em;
+        filter:Alpha(opacity=50);
+       }
+        .scroll::-webkit-scrollbar-thumb {
+        background-color:rgba(248, 69, 69, 0.6);
+        -webkit-border-radius: 2em;
+        -moz-border-radius: 2em;
+        border-radius:2em;
+       }
 }

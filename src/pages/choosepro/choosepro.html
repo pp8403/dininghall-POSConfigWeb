@@ -10,27 +10,46 @@
     <ion-buttons right>
            
           
-            <button ion-button icon-only color="dark" (click)="selectAll()">
-                全选&nbsp;&nbsp;<ion-toggle [(ngModel)]='selectAll_status' color="danger" ></ion-toggle>
-              </button>
+            
       </ion-buttons>
 
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
+<ion-content style="font-size: 1.6rem;">
+    <p style="border-bottom: 1px solid rgb(211, 211, 211);padding: 0;padding-left: 1rem;margin: 0;">
+      <ion-row>
+        <ion-col>
+
+        </ion-col>
+        <ion-col style="border-right: 1px solid rgb(211, 211, 211);">
+           <button ion-button clear icon-only (click)="selectAll()" color="dark">
+              <ion-toggle (click)="selectAll()" [(ngModel)]='selectAll_status' color="danger" ></ion-toggle>供应该产品
+            </button>
+        </ion-col>
+        <ion-col >
+          
+            <button ion-button clear icon-only (click)="selectAll_nowalkin()" color="dark" >
+                <ion-toggle (click)="selectAll_nowalkin()" [(ngModel)]='selectAll_nowalkin_status' color="danger" ></ion-toggle>在“现点”中隐藏 
+              </button>
+        </ion-col>
+      </ion-row>
+    </p>
+    <p *ngFor="let pro of prolist" style="border-bottom: 1px solid rgb(211, 211, 211);padding: 0;padding-left: 1rem;margin: 0;">
+        <ion-row>
+      <ion-col >
+          {{pro.proname}}
+    </ion-col>
+    <ion-col  style="border-right: 1px solid rgb(211, 211, 211);">
+        <ion-toggle (ionChange)="selectAll_re()" [(ngModel)]='pro.seted' color="secondary"></ion-toggle> 
+    </ion-col>
+    <ion-col >
+        <ion-toggle (ionChange)="selectAll_re_nowalkin()" [disabled]='pro.seted==false' [(ngModel)]='pro.nowalkin' color="secondary"></ion-toggle>
+      </ion-col>
+      
+    </ion-row>
+    </p>
     
-    <ion-item *ngFor="let pro of prolist">
-      <ion-label>{{pro.proname}}</ion-label>
-      <ion-toggle (ionChange)="selectAll_re()" [(ngModel)]='pro.seted' color="secondary"></ion-toggle>
-      <ion-select  [(ngModel)]="pro.nowalkin" [disabled]='pro.seted==false' interface='popover'>
-        <ion-option value="1">不允许现场点餐</ion-option>
-        <ion-option value="0">允许现场点餐</ion-option>
-      </ion-select>
-    </ion-item>
-    
-  </ion-list>
 </ion-content>
 <ion-footer text-center>
   <ion-row>
