@@ -17,25 +17,20 @@
 </ion-header>
 
 <ion-content style="font-size: 1.6rem;">
-    <p style="border-bottom: 1px solid rgb(211, 211, 211);padding: 0;padding-left: 1rem;margin: 0;">
-      <ion-row>
-        <ion-col>
-
+    <p style="border-bottom: 1px solid rgb(211, 211, 211);padding: 0 0 0 1rem;margin: 0;background-color: #fafafa">
+      <ion-row style="padding: 0.5rem 0 0.5rem 0">
+        <ion-col text-right >
+          <ion-note style="font-size: 12px;color:rgb(97, 97, 97)">(提示:点击标题全选)</ion-note>
         </ion-col>
-        <ion-col style="border-right: 1px solid rgb(211, 211, 211);">
-           <button ion-button clear icon-only (click)="selectAll()" color="dark">
-              <ion-toggle (click)="selectAll()" [(ngModel)]='selectAll_status' color="danger" ></ion-toggle>供应该产品
-            </button>
+        <ion-col style="border-right: 1px solid rgb(211, 211, 211);" (click)="selectAll()" >
+          供应该产品
         </ion-col>
-        <ion-col >
-          
-            <button ion-button clear icon-only (click)="selectAll_nowalkin()" color="dark" >
-                <ion-toggle (click)="selectAll_nowalkin()" [(ngModel)]='selectAll_nowalkin_status' color="danger" ></ion-toggle>在“现点”中隐藏 
-              </button>
+        <ion-col (click)="selectAll_nowalkin()" >
+          在“现点”中隐藏
         </ion-col>
       </ion-row>
     </p>
-    <p *ngFor="let pro of prolist" style="border-bottom: 1px solid rgb(211, 211, 211);padding: 0;padding-left: 1rem;margin: 0;">
+    <p *ngFor="let pro of prolist" style="border-bottom: 1px solid rgb(211, 211, 211);padding:0 0 0 1rem;margin: 0;">
         <ion-row>
       <ion-col >
           {{pro.proname}}

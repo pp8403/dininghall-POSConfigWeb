@@ -20,7 +20,7 @@
 
     <ng-container *ngIf="model.mtype=='POS'">
     <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
-      窗口类型:
+      该窗口“允许取预定餐”和“允许现场点餐”<span style="color:red;font-size:12px;">(注意:每个餐别都需要设置)</span>
     </ion-list-header>
     <ion-item>
     <ion-segment [(ngModel)]="mealType">
@@ -56,14 +56,15 @@
     
         
 
-   
+    <ion-list-header style="font-weight:bold;color:#488aff;font-size: 1.7rem;">
+      其它设置
+    </ion-list-header>
     <ion-item>
       <ion-toggle [(ngModel)]="model.option.allow_takehold" color="secondary"></ion-toggle>
       <ion-label>允许取"留"餐</ion-label>
     </ion-item>
 
   </ng-container>
-
   <ion-item>
     <ion-label fixed >支付完成等待时间(秒):</ion-label>
     <ion-input [(ngModel)]="model.option.paydone_waitsec" type="number" placeholder='在此输入TV排序值'></ion-input>
