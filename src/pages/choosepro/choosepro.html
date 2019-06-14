@@ -21,11 +21,11 @@
       <ion-row style="padding: 0.5rem 0 0.5rem 0">
         <ion-col text-right >
         </ion-col>
-        <ion-col style="border-right: 1px solid rgb(211, 211, 211);" (click)="selectAll()">
+        <ion-col style="border-right: 1px solid rgb(211, 211, 211);" tappable (click)="selectAll()">
           <div style="color: #488aff">供应该产品</div>
           <div><ion-note style="font-size: 12px;color:rgb(97, 97, 97)">(提示:点击标题全选)</ion-note></div>
         </ion-col>
-        <ion-col (click)="selectAll_nowalkin()" >
+        <ion-col tappable (click)="selectAll_nowalkin()" >
           <div style="color: #488aff">在“现点”中隐藏</div>
           <div><ion-note style="font-size: 12px;color:rgb(97, 97, 97)">(提示:点击标题全选)</ion-note></div>
         </ion-col>
