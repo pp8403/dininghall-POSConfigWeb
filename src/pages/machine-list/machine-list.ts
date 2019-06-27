@@ -18,11 +18,12 @@ import { HttpRequestProvider } from '../../providers/http-request/http-request';
 export class MachineListPage {
 
   formValue = new Map();
-
+  apihost:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private common: CommonProvider,
     private http: HttpRequestProvider,
     ) {
+      this.common.GetStorage(this.common.LSName_APIURL).then(_apihost => this.apihost=_apihost);
 
   }
 
